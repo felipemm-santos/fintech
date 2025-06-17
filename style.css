@@ -1,0 +1,9 @@
+.sobre{
+    min-height: 60vh;
+}
+
+@media(max-width:979px) {
+    #sobre{
+        text-align: center;
+    } 
+}
