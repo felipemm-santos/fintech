@@ -1,4 +1,4 @@
-# 💰 Fintech – Organizador Financeiro Pessoal
+# 💰 Fintech – Sistema de gereniamento de finaças pessoais
 
 Este repositório contém o desenvolvimento do **Fintech**, um projeto universitário cujo objetivo é construir uma **aplicação web para ajudar as pessoas a organizar e planejar suas finanças**.  
 O projeto é desenvolvido em múltiplas fases, cada uma focada em diferentes tecnologias e conceitos.
