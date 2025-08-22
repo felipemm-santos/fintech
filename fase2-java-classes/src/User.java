@@ -1,45 +1,88 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class User {
-    // Attributes
+    // Atributos
 
-    private String name;
+    private String userName;
     private String email;
     private String password;
 
-    private String birthday;
+    private LocalDate birthday;
     private String genre;
     private String imgUrl;
 
-    private ArrayList<Income> userIncomes;
-    private ArrayList<Investment> userInvestments;
-    private ArrayList<Expense> userExpenses;
+    private ArrayList<Record> records;
 
-    // Constructors
-    public User(String name, String email, String password) {
-        this.name = name;
+
+    // Construtor padrão
+    public User(String userName, String email, String password) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
     }
 
-    // Methods
+    // Métodos da Classe
 
-    public ArrayList<Income> addIncome() {
-        this.userIncomes.add(new Income());
-        return this.userIncomes;
+    public ArrayList<Record> addRecord(Record record) {
+        /*Adiciona registro a lista de registros*/
+
+        // Lógica para adicionar registro
+        System.out.println("Adicionando registro: "  + record.description);
+        return this.records;
     }
-    public ArrayList<Investment> addInvestment() {
-        this.userInvestments.add(new Investment());
-        return this.userInvestments;
+
+    public ArrayList<Record> deleteRecord(Record record) {
+        /* Apaga registro da lista de registros */
+
+        // Lógica para deletar registro
+        System.out.println("Deletando registro"  + record.description);
+        return this.records;
     }
-    public ArrayList<Expense> addExpense(){
-        this.userExpenses.add(new Expense());
-        return this.userExpenses;
+
+    public String changePassword(String oldPassword, String newPassword) {
+        /* Modifica senha do usuário */
+
+        // Lógica para mudar a senha do usuário.
+
+        System.out.println("Trocando senha do usuário:"
+                + "\n Senha antiga:"  + oldPassword
+                + "\n Nova senha " + newPassword
+        );
+        return this.password;
+    }
+
+    public String changeEmail(String email, String newEmail) {
+        /* Troca e-mail do usuário*/
+
+        // Lógica para trocar e-mail
+        System.out.println("Trocando e-mail:"
+                + "\n E-mail antigo:" + email
+                + "\n Novo E-mail " + newEmail
+        );
+        return this.email;
+    }
+
+    public User updateProfile() {
+        /* Atualizar cadastro do usuário*/
+
+        // Lógica para atualizar cadastro
+        System.out.println("Atualizando perfil do usuário: " + this.userName);
+        return this;
+    }
+
+    public User deleteAccount() {
+        /* Deleta conta do usuário */
+
+        // Lógica para deletar a conta do usuário
+        System.out.println("Deletando conta do usuário: " + this.userName);
+        return this;
     }
 
     // Getters
-    public String getName() {
-        return name;
+
+    public String getUserName() {
+        return userName;
     }
 
     public String getEmail() {
@@ -50,7 +93,7 @@ public class User {
         return password;
     }
 
-    public String getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
@@ -62,21 +105,14 @@ public class User {
         return imgUrl;
     }
 
-    public ArrayList<Income> getUserIncomes() {
-        return userIncomes;
-    }
-
-    public ArrayList<Investment> getUserInvestments() {
-        return userInvestments;
-    }
-
-    public ArrayList<Expense> getUserExpenses() {
-        return userExpenses;
+    public ArrayList<Record> getRecords() {
+        return records;
     }
 
     // Setters
-    public User setName(String name) {
-        this.name = name;
+
+    public User setUserName(String userName) {
+        this.userName = userName;
         return this;
     }
 
@@ -90,7 +126,7 @@ public class User {
         return this;
     }
 
-    public User setBirthday(String birthday) {
+    public User setBirthday(LocalDate birthday) {
         this.birthday = birthday;
         return this;
     }
@@ -102,6 +138,11 @@ public class User {
 
     public User setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+        return this;
+    }
+
+    public User setRecords(ArrayList<Record> records) {
+        this.records = records;
         return this;
     }
 }
