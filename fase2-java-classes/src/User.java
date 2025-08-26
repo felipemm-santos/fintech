@@ -15,11 +15,16 @@ public class User {
     private ArrayList<Record> records;
 
 
-    // Construtor padrão
+    // Construtores
+    public User(){
+        this.records = new ArrayList<>(); // inicializa lista
+    }
+
     public User(String userName, String email, String password) {
         this.userName = userName;
         this.email = email;
         this.password = password;
+        this.records = new ArrayList<>(); // inicializa lista
     }
 
     // Métodos da Classe
@@ -27,8 +32,8 @@ public class User {
     public ArrayList<Record> addRecord(Record record) {
         /*Adiciona registro a lista de registros*/
 
-        // Lógica para adicionar registro
-        System.out.println("Adicionando registro: "  + record.description);
+        this.records.add(record);
+        System.out.println("Adicionando registro: "  + record.getName());
         return this.records;
     }
 
@@ -36,15 +41,14 @@ public class User {
         /* Apaga registro da lista de registros */
 
         // Lógica para deletar registro
-        System.out.println("Deletando registro"  + record.description);
+        System.out.println("Deletando registro"  + record.getName());
         return this.records;
     }
 
     public String changePassword(String oldPassword, String newPassword) {
         /* Modifica senha do usuário */
 
-        // Lógica para mudar a senha do usuário.
-
+        this.password = newPassword;
         System.out.println("Trocando senha do usuário:"
                 + "\n Senha antiga:"  + oldPassword
                 + "\n Nova senha " + newPassword
@@ -55,12 +59,12 @@ public class User {
     public String changeEmail(String email, String newEmail) {
         /* Troca e-mail do usuário*/
 
-        // Lógica para trocar e-mail
+        this.email = newEmail;
         System.out.println("Trocando e-mail:"
                 + "\n E-mail antigo:" + email
                 + "\n Novo E-mail " + newEmail
         );
-        return this.email;
+        return email;
     }
 
     public User updateProfile() {
@@ -77,6 +81,14 @@ public class User {
         // Lógica para deletar a conta do usuário
         System.out.println("Deletando conta do usuário: " + this.userName);
         return this;
+    }
+
+    public void showFinancialSummary() {
+        /* Gera um resumo da situação financeira atual do usuário*/
+
+        // Lógica para mostrar o resumo
+
+        System.out.println("Mostrando resumo da situação financeira atual do usuário");
     }
 
     // Getters

@@ -1,11 +1,21 @@
 import java.time.LocalDate;
 
 public abstract class Record {
+    protected String name;
     protected String description;
     protected double amount;
     protected LocalDate operationDate;
 
-    public Record(String description, double amount,  LocalDate operationDate) {
+
+    public Record(String name, double amount, LocalDate operationDate) {
+        this.name = name;
+        this.description = "";
+        this.amount = amount;
+        this.operationDate = operationDate;
+    }
+
+    public Record(String name, String description ,double amount, LocalDate operationDate) {
+        this.name = name;
         this.description = description;
         this.amount = amount;
         this.operationDate = operationDate;
@@ -15,6 +25,10 @@ public abstract class Record {
     public abstract Record updateRecord();
 
     // Getters
+    public String getName() {
+        return name;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -28,7 +42,12 @@ public abstract class Record {
     }
 
     // Setters
-    public Record setDescription(String description) {
+    public Record setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Record setDescription (String description) {
         this.description = description;
         return this;
     }
