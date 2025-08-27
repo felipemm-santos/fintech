@@ -1,21 +1,32 @@
 # 💰 Fintech – Personal Finance Organizer
 
-This repository contains the development of **Fintech**, a university project whose objective is to build a **web application to help people organize and plan their finances**.  
-The project is developed in multiple phases, each focusing on different technologies and concepts.
+This repository contains the **Fintech** project, developed as part of the **Analysis and Systems Development** course at **FIAP University**.  
+The goal of the project is to build an application that helps people **organize and plan their personal finances**, while progressively applying concepts of **web development, object-oriented programming (OOP), and software engineering**.
 
 ---
 
-## 📂 Project Structure
+## 🚀 Project Goal
+The main objective is to create a financial planning application, evolving in **phases** that align with the course curriculum.
 
-- **fase1-simple-page/**
+---
+
+## 📂 Project Phases
+
+### 🔹 Phase 1 – Basic Front-end Page
   - A simple webpage built using **HTML, CSS, and Bootstrap**.
   - 🎯 Objective: learn the basics of front-end development and understand how to use the **Bootstrap framework**.
 
-- **fase2-java-classes/**
-  - Core Java classes that will support the application.
-  - 🎯 Objective: practice the fundamentals of **Object-Oriented Programming (OOP)** and get familiar with **IntelliJ IDEA** as an IDE.
+### 🔹 Phase 2 – Core Classes in Java
+  - Create the main classes required for the application.  
+  - Methods not fully implemented yet – only `System.out.println()` statements explaining what they should do.  
+  - **Objective:** apply fundamentals of **OOP** (classes, attributes, and methods). 
 
-(Future phases will expand functionality and integrate these parts into a complete application.)
+### 🔹 Phase 3 – Class Implementation
+- Implement all methods of the classes created in phase 2.  
+- Add a `Test` class with a `main()` method to instantiate objects and test functionalities.  
+- **Objective:** practice **encapsulation, constructors, polymorphism, and class relationships**.  
+
+*(Future phases will be added as the course progresses.)*
 
 ---
 
@@ -32,11 +43,12 @@ The project is developed in multiple phases, each focusing on different technolo
 
 ---
 
-## 🎯 Learning Goals
+## 🎯 Learning Goal
 
-- Phase 1: Build a static webpage and practice **front-end development** with Bootstrap.  
-- Phase 2: Implement Java classes, applying **OOP principles** and learning how to use an IDE.  
-- Future Phases: Integrate front-end and back-end into a functional **Fintech web application**.  
+- Basics of front-end development with HTML, CSS, and Bootstrap
+- Creation of classes, attributes, and methods in Java
+- Applying OOP concepts such as encapsulation, inheritance, and polymorphism
+- Organizing a project into multiple development phases
 
 ---
 
@@ -53,10 +65,20 @@ The project is developed in multiple phases, each focusing on different technolo
 
 - ✅ Phase 1 – Static Webpage with Bootstrap  
 - ✅ Phase 2 – Java Classes & OOP Basics  
-- ⏳ Next – Integration and feature expansion  
+- ⏳ Phase 3 – Class Implementation
+- ⏳ Next Fases   
 
 ---
 
+## 📂 Repository Structure
+```bash
+├── fase1-simple-page/         # Basic webpage using HTML, CSS, Bootstrap
+├── fase2-java-classes/         # Java classes with simulated methods (System.out.println)
+├── fase3-implement-classes/         # Fully implemented classes + Test class
+└── README.md      # Central documentation with links to languages
+````
+
+---
 ## 👨‍💻 Author
 
 Developed by **Felipe Mariano** as part of the **Analysis and Systems Development** course at FIAP.
