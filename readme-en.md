@@ -22,7 +22,7 @@ The main objective is to create a financial planning application, evolving in **
   - **Objective:** apply fundamentals of **OOP** (classes, attributes, and methods). 
 
 ### 🔹 Phase 3 – Class Implementation
-- Implement all methods of the classes created in phase 2.  
+- Implement all classes needed in the project.  
 - Add a `Test` class with a `main()` method to instantiate objects and test functionalities.  
 - **Objective:** practice **encapsulation, constructors, polymorphism, and class relationships**.  
 
