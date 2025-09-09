@@ -85,10 +85,10 @@ public class User {
         return this;
     }
 
-    public void showFinancialSummary() {
+    public void getFinancialSummary() {
         /* Gera um resumo da situação financeira atual do usuário*/
 
-        // Lógica para mostrar o resumo
+        // Lógica para gerar resumo
 
         System.out.println("Mostrando resumo da situação financeira atual do usuário");
     }

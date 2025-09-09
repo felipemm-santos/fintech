@@ -1,26 +1,21 @@
 package br.com.fintech.fase3.model;
 
-import java.time.LocalDate;
-
 public abstract class Record {
     protected String name;
     protected String description;
-    protected double amount;
-    protected LocalDate operationDate;
+    protected String category;
 
+    // Construtores
+    public Record() {}
 
-    public Record(String name, double amount, LocalDate operationDate) {
+    public Record(String name) {
         this.name = name;
         this.description = "";
-        this.amount = amount;
-        this.operationDate = operationDate;
     }
 
-    public Record(String name, String description ,double amount, LocalDate operationDate) {
+    public Record(String name, String description) {
         this.name = name;
         this.description = description;
-        this.amount = amount;
-        this.operationDate = operationDate;
     }
 
     //Métodos da classe
@@ -35,12 +30,8 @@ public abstract class Record {
         return description;
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public LocalDate getOperationDate() {
-        return operationDate;
+    public String getCategory() {
+        return category;
     }
 
     // Setters
@@ -54,13 +45,9 @@ public abstract class Record {
         return this;
     }
 
-    public Record setAmount(double amount) {
-        this.amount = amount;
+    public Record setCategory(String category) {
+        this.category = category;
         return this;
     }
 
-    public Record setOperationDate(LocalDate operationDate) {
-        this.operationDate = operationDate;
-        return this;
-    }
 }

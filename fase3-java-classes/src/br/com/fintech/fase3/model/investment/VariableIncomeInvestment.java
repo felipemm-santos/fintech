@@ -1,29 +1,33 @@
-package br.com.fintech.fase3.model;
+package br.com.fintech.fase3.model.investment;
+
+import br.com.fintech.fase3.model.Record;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class VariableIncomeInvestment extends Investment {
     private String ticker;
-    private double purchasePrice;
-    private int shares;
 
     // Construtores
-    public VariableIncomeInvestment(String ticker, double purchasePrice, int shares, LocalDate operationDate) {
-        super(ticker, purchasePrice * shares,operationDate);
-        this.ticker = ticker;
-        this.purchasePrice = purchasePrice;
-        this.shares = shares;
+
+    public VariableIncomeInvestment() {
+        super();
     }
 
-    public VariableIncomeInvestment(String ticker, double purchasePrice, int shares, String description, LocalDate operationDate) {
-        super(ticker, purchasePrice * shares,operationDate);
+    public VariableIncomeInvestment(String name, String assetType, double tax, String ticker) {
+        super(name,assetType,tax);
         this.ticker = ticker;
-        this.purchasePrice = purchasePrice;
-        this.shares = shares;
-        this.description = description;
     }
 
     // Métodos da classe
+
+    public double getCurrentQuantity(){
+        /* Retorna a quantidade cotas existentes do ativo */
+
+        // Lógica para retornar a quantidade de cotas
+        System.out.println("Verificando quantidade de cotas do ativo " + this.name);
+        return 0;
+    }
 
     public double calculateAverageCost(){
         /* Calcula o preço médio de compra do ativo */
@@ -35,7 +39,7 @@ public class VariableIncomeInvestment extends Investment {
 
     // Implementação dos Métodos das classes super
     @Override
-    public double calculateReturn() {
+    public double getInvestmentReturn() {
         /* Calcula retorno do investimento */
 
         // Lógica para calcular retorno do investimento
@@ -58,13 +62,7 @@ public class VariableIncomeInvestment extends Investment {
         return ticker;
     }
 
-    public double getPurchasePrice() {
-        return purchasePrice;
-    }
 
-    public int getShares() {
-        return shares;
-    }
 
     // Setters
 
@@ -73,13 +71,4 @@ public class VariableIncomeInvestment extends Investment {
         return this;
     }
 
-    public VariableIncomeInvestment setPurchasePrice(double purchasePrice) {
-        this.purchasePrice = purchasePrice;
-        return this;
-    }
-
-    public VariableIncomeInvestment setShares(int shares) {
-        this.shares = shares;
-        return this;
-    }
 }
