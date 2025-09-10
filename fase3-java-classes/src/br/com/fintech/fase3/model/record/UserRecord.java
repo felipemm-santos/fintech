@@ -1,9 +1,10 @@
-package br.com.fintech.fase3.model;
+package br.com.fintech.fase3.model.record;
 
 public abstract class Record {
     protected String name;
     protected String description;
     protected String category;
+    protected String type;
 
     // Construtores
     public Record() {}
