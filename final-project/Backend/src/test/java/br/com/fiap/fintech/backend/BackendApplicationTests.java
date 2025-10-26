@@ -1,4 +1,4 @@
-package br.com.fiap.fintech.Backend;
+package br.com.fiap.fintech.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
