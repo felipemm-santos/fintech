@@ -1,20 +1,30 @@
 package br.com.fiap.fintech.model.category;
 
+import br.com.fiap.fintech.model.User;
+
 public class Category {
-    private Long id;
-    private Long userId;
+    private Integer id;
+    private Integer userId;
     private String name;
     private CategoryType type; // TRANSACTION, INVESTMENT, GOAL
 
-    public Category(Long id, Long userId,String name,
+    public Category( Integer userId,String name,
                     CategoryType type) {
-        this.id = id;
         this.userId = userId;
         this.name = name;
         this.type = type;
     }
 
     // Getters
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
     public String getName() {
         return name;
     }
@@ -24,13 +34,20 @@ public class Category {
     }
 
     // Setters
-    public Category setName(String name) {
-        this.name = name;
-        return this;
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Category setType(CategoryType type) {
+    public void setUser(Integer userId) {
+        this.userId = userId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(CategoryType type) {
         this.type = type;
-        return this;
     }
 }

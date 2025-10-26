@@ -1,5 +1,6 @@
 package br.com.fiap.fintech.model;
 
+import br.com.fiap.fintech.model.goal.Goal;
 import br.com.fiap.fintech.model.investment.Investment;
 import br.com.fiap.fintech.model.record.UserRecord;
 import br.com.fiap.fintech.model.transaction.Transaction;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public class User {
     // Atributos
-
+    private Integer id;
     private String name;
     private String email;
     private String password;
@@ -134,6 +135,9 @@ public class User {
     }
 
     // Getters
+    public Integer getId(){
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -170,6 +174,7 @@ public class User {
     public ArrayList<Goal> getGoals() {
         return goals;
     }
+
     // Setters
 
     public User setName(String name) {

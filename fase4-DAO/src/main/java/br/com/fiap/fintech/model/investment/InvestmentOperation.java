@@ -8,8 +8,8 @@ public class InvestmentOperation {
     private Investment investment;
 
     private double amount;       // valor total
-    private Double quantity;     // qtd. de cotas (pode ser null em renda fixa)
-    private Double unitPrice;    // preço unitário (pode ser null em renda fixa)
+    private Double shares;     // qtd. de cotas (pode ser null em renda fixa)
+    private Double sharePrice;    // preço unitário (pode ser null em renda fixa)
 
     private double taxPaid; // valor pago em impostos na operação. Exemplo: R$ 15,00
 
@@ -24,13 +24,13 @@ public class InvestmentOperation {
         investment.addOperation(this);
     }
 
-    public InvestmentOperation(LocalDate date, String operationType, Investment investment, double quantity, double unitPrice){
+    public InvestmentOperation(LocalDate date, String operationType, Investment investment, double shares, double unitPrice){
         this.operationDate = date;
         this.operationType = operationType;
         this.investment = investment;
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.amount = quantity * unitPrice;
+        this.shares = shares;
+        this.sharePrice = unitPrice;
+        this.amount = shares * unitPrice;
         this.taxPaid = calculateTaxPaid(investment, operationType);
     }
 
@@ -88,12 +88,12 @@ public class InvestmentOperation {
         return amount;
     }
 
-    public Double getQuantity() {
-        return quantity;
+    public Double getShares() {
+        return shares;
     }
 
     public Double getUnitPrice() {
-        return unitPrice;
+        return sharePrice;
     }
 
     // Setters
@@ -117,13 +117,13 @@ public class InvestmentOperation {
         return this;
     }
 
-    public InvestmentOperation setQuantity(Double quantity) {
-        this.quantity = quantity;
+    public InvestmentOperation setShares(Double shares) {
+        this.shares = shares;
         return this;
     }
 
     public InvestmentOperation setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
+        this.sharePrice = unitPrice;
         return this;
     }
 }

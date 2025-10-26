@@ -2,12 +2,10 @@ package br.com.fiap.fintech.model.transaction;
 
 import br.com.fiap.fintech.model.record.*;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 
 public abstract class Transaction extends UserRecord {
-    protected Long categoryId;
     protected String transactionType; // Income, Expense
     protected String status; // PLANNED, PENDING, COMPLETED
 
@@ -16,23 +14,20 @@ public abstract class Transaction extends UserRecord {
     protected LocalDate dueDate; // Data prevista para acontecer
     protected LocalDate transactionDate; // Data em que aconteceu
 
-    protected boolean recurring; // É ou não recorrente
-    protected int recurrenceInterval; // Intervalo de recorrência
-    protected String recurrenceUnit; // Unidade de que mede o intervalo (ex. dias, semanas, meses, etc..)
-
     // Construtores
-    protected Transaction(Long id, Long userId){
-        super(id, userId, RecordType.TRANSACTION);
+    protected Transaction(Integer userId){
+        super(userId, RecordType.TRANSACTION);
     }
 
-    protected Transaction(Long id, Long userId,
+    protected Transaction(Integer userId,
                           String name,
-                          double amount, String transactionType, String status) {
-        super(id, userId,name,RecordType.TRANSACTION);
+                          double amount, String transactionType, String status, LocalDate dueDate, LocalDate transactionDate) {
+        super(userId,name,RecordType.TRANSACTION);
         this.amount = amount;
         this.transactionType = transactionType;
         this.status = status;
-        this.recurring = false;
+        this.dueDate = dueDate;
+        this.transactionDate = transactionDate;
     }
 
     // Métodos da classe
@@ -73,18 +68,6 @@ public abstract class Transaction extends UserRecord {
         return transactionDate;
     }
 
-    public boolean isRecurring() {
-        return recurring;
-    }
-
-    public int getRecurrenceInterval() {
-        return recurrenceInterval;
-    }
-
-    public String getRecurrenceUnit() {
-        return recurrenceUnit;
-    }
-
     // Setters
 
     public Transaction setTransactionType(String transactionType) {
@@ -112,25 +95,11 @@ public abstract class Transaction extends UserRecord {
         return this;
     }
 
-    public Transaction setAsRecurring(boolean recurring,  int recurrenceInterval, String recurrenceUnit) {
-        this.recurring = recurring;
+    public Transaction setAsRecurring(boolean recurring,  Integer recurrenceInterval, String recurrenceUnit) {
         if (recurring){
-            this.recurrenceInterval = recurrenceInterval;
-            this.recurrenceUnit = recurrenceUnit;
         }else {
-            this.recurrenceInterval = 0;
-            this.recurrenceUnit = "";
         }
         return this;
     }
 
-    public Transaction setRecurrenceInterval(int recurrenceInterval) {
-        this.recurrenceInterval = recurrenceInterval;
-        return this;
-    }
-
-    public Transaction setRecurrenceUnit(String recurrenceUnit) {
-        this.recurrenceUnit = recurrenceUnit;
-        return this;
-    }
 }

@@ -1,4 +1,4 @@
-package br.com.fiap.fintech.model;
+package br.com.fiap.fintech.model.goal;
 
 import br.com.fiap.fintech.model.record.RecordType;
 import br.com.fiap.fintech.model.record.UserRecord;
@@ -9,23 +9,25 @@ public class Goal extends UserRecord {
     private double targetAmount;
     private double currentAmount;
     private LocalDate targetDate;
+    private LocalDate completionDate;
+    private Integer status;
 
     // Construtores
 
-    public Goal(Long id, Long userId){
-        super(id, userId, RecordType.GOAL);
+    public Goal(Integer userId){
+        super(userId, RecordType.GOAL);
     }
 
-    public Goal(Long id, Long userId, String name,
+    public Goal(Integer userId, String name,
                 double targetAmount,  LocalDate targetDate) {
-        super(id, userId,name, RecordType.GOAL);
+        super(userId, name, RecordType.GOAL);
         this.targetAmount = targetAmount;
         this.targetDate = targetDate;
         currentAmount = 0.0;
     }
 
-    public Goal(Long id, Long userId,String name, double targetAmount,  LocalDate targetDate,  double currentAmount) {
-        super(id, userId,name, RecordType.GOAL);
+    public Goal(Integer userId,String name, double targetAmount,  LocalDate targetDate,  double currentAmount) {
+        super(userId, name, RecordType.GOAL);
         this.targetAmount = targetAmount;
         this.targetDate = targetDate;
         this.currentAmount = currentAmount;
@@ -54,19 +56,12 @@ public class Goal extends UserRecord {
         return currentAmount/targetAmount * 100;
     }
 
-    public int daysRemaining(){
+    public Integer daysRemaining(){
         /* Retorna a quantidade de dias faltando para a data definida para cumprir o objetivo*/
 
         // Lógica para retornar a quantidade de dias
         System.out.println("Calculando dias restantes para cumprir a meta");
         return 0;
-    }
-    @Override
-    public UserRecord updateRecord() {
-        // Lógica para atualizar o registro
-        System.out.println("Atualizando registro da despesa " +  this.name);
-
-        return this;
     }
 
     // Getters
@@ -81,6 +76,14 @@ public class Goal extends UserRecord {
 
     public LocalDate getTargetDate() {
         return targetDate;
+    }
+
+    public LocalDate getCompletionDate() {
+        return completionDate;
+    }
+
+    public Integer getStatus() {
+        return status;
     }
 
     // Setters
@@ -98,5 +101,13 @@ public class Goal extends UserRecord {
     public Goal setTargetDate(LocalDate targetDate) {
         this.targetDate = targetDate;
         return this;
+    }
+
+    public void setCompletionDate(LocalDate completionDate) {
+        this.completionDate = completionDate;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

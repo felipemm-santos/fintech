@@ -6,35 +6,29 @@ import java.time.LocalDate;
 
 public class FixedIncomeInvestment extends Investment {
     private LocalDate maturityDate;
-    private int liquidityInDays;
+    private Integer liquidityInDays;
 
-    // Para prefixados
-    private double annualRate;           // Taxa anual fixa (null se pós-fixado)
-
-    // Para pós-fixados
-    private String index;                  // Ex: CDI, SELIC, IPCA
-    private double indexPercentage;        // Percentual aplicado sobre o índice
+    private double annualRate;           // Taxa anual fixa
+    private String index;                // Ex: CDI, SELIC, IPCA
 
     // Construtores
 
     public FixedIncomeInvestment() {}
 
-    public FixedIncomeInvestment(String name, String assetType, double tax, LocalDate maturityDate, int liquidityInDays, double annualRate) {
+    public FixedIncomeInvestment(String name, String assetType, double tax, LocalDate maturityDate, Integer liquidityInDays, double annualRate) {
         super(name,assetType,tax);
         this.maturityDate = maturityDate;
         this.liquidityInDays = liquidityInDays;
         this.annualRate = annualRate;
         this.index = null;
-        this.indexPercentage = 0;
     }
 
-    public FixedIncomeInvestment(String name, String assetType, double tax, LocalDate maturityDate, int liquidityInDays, String index, double indexPercentage) {
+    public FixedIncomeInvestment(String name, String assetType, double tax, LocalDate maturityDate, Integer liquidityInDays, String index) {
         super(name,assetType,tax);
         this.maturityDate = maturityDate;
         this.liquidityInDays = liquidityInDays;
         this.annualRate = 0;
         this.index = index;
-        this.indexPercentage = indexPercentage;
     }
 
     // Implementação dos Métodos das classes super
@@ -59,7 +53,7 @@ public class FixedIncomeInvestment extends Investment {
         return maturityDate;
     }
 
-    public int getLiquidityInDays() {
+    public Integer getLiquidityInDays() {
         return liquidityInDays;
     }
 
@@ -71,10 +65,6 @@ public class FixedIncomeInvestment extends Investment {
         return index;
     }
 
-    public double getIndexPercentage() {
-        return indexPercentage;
-    }
-
     // Setters
 
     public FixedIncomeInvestment setMaturityDate(LocalDate maturityDate) {
@@ -82,7 +72,7 @@ public class FixedIncomeInvestment extends Investment {
         return this;
     }
 
-    public FixedIncomeInvestment setLiquidityInDays(int liquidityInDays) {
+    public FixedIncomeInvestment setLiquidityInDays(Integer liquidityInDays) {
         this.liquidityInDays = liquidityInDays;
         return this;
     }
@@ -97,8 +87,4 @@ public class FixedIncomeInvestment extends Investment {
         return this;
     }
 
-    public FixedIncomeInvestment setIndexPercentage(double indexPercentage) {
-        this.indexPercentage = indexPercentage;
-        return this;
-    }
 }

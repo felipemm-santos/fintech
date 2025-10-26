@@ -1,42 +1,59 @@
 package br.com.fiap.fintech.model.record;
 
+import java.time.LocalDate;
+
 public abstract class UserRecord {
-    protected Long id;
-    protected Long userId;
+    protected Integer id;
+    protected Integer userId;
+    protected Integer categoryId;
     protected String name;
     protected String description;
-    protected String category;
     protected String type;
+    protected LocalDate createdAt;
 
     // Construtores
-    protected UserRecord(Long id, Long userId,String type) {
-        this.id = id;
+    protected UserRecord(Integer userId,String type) {
         this.userId = userId;
         this.type = type;
+        this.createdAt = LocalDate.now();
     }
 
-    protected UserRecord(Long id, Long userId,String name,
+    protected UserRecord(Integer userId,String name,
                          String type) {
-        this.id = id;
+
         this.userId = userId;
         this.name = name;
         this.description = "";
         this.type = type;
+        this.createdAt = LocalDate.now();
+
     }
 
-    protected UserRecord(Long id, Long userId,String name,
-                         String description, String type) {
-        this.id = id;
+    protected UserRecord(Integer userId,String name,
+                         String description,Integer categoryId, String type) {
+
         this.userId = userId;
         this.name = name;
         this.description = description;
+        this.categoryId = categoryId;
         this.type = type;
+        this.createdAt = LocalDate.now();
     }
 
-    //Métodos da classe
-    public abstract UserRecord updateRecord();
-
     // Getters
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
     public String getName() {
         return name;
     }
@@ -45,32 +62,43 @@ public abstract class UserRecord {
         return description;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
     public String getType() {
         return type;
     }
 
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
     // Setters
-    public UserRecord setName(String name) {
+
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setUser(Integer userId) {
+        this.userId = userId;
+    }
+
+    public void setCategory(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public void setName(String name) {
         this.name = name;
-        return this;
     }
 
-    public UserRecord setDescription (String description) {
+    public void setDescription(String description) {
         this.description = description;
-        return this;
     }
 
-    public UserRecord setCategory(String category) {
-        this.category = category;
-        return this;
-    }
-
-    public UserRecord setType(String type) {
+    public void setType(String type) {
         this.type = type;
-        return this;
     }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
+
 }
