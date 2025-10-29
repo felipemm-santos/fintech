@@ -9,43 +9,43 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserController {
     @Autowired
     private UserService  userService;
 
     // Create new User
-    @PostMapping("/user")
+    @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public User create(@RequestBody User user) {
         return userService.save(user);
     }
 
     // Get all users
-    @GetMapping("/user")
+    @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
     public List<User> listAll() {
         return userService.listAll();
     }
 
     // Get user by id
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public User get(@PathVariable("id") Integer id) {
+    public User findById(@PathVariable("id") Long id) {
         return userService.findById(id);
     }
 
     // Update user
-    @PutMapping("/user/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public User update(@PathVariable("id") Integer id, @RequestBody User user) {
+    public User update(@PathVariable("id") Long id, @RequestBody User user) {
         return userService.update(id, user);
     }
 
     // Delete user
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") Integer id) {
-        userService.deleteUser(id);
+    public void delete(@PathVariable("id") Long id) {
+        userService.delete(id);
     }
 }

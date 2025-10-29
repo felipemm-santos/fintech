@@ -18,7 +18,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User findById(Integer id) throws RuntimeException {
+    public User findById(Long id) throws RuntimeException {
         Optional<User> user = userRepository.findById(id);
 
         if(!user.isPresent()) {
@@ -32,21 +32,21 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User update(Integer id, User user) throws RuntimeException {
-        Optional<User> userOptional = userRepository.findById(id);
-        if(!userOptional.isPresent()) {
+    public User update(Long id, User user) throws RuntimeException {
+        Optional<User> oldUser = userRepository.findById(id);
+        if(!oldUser.isPresent()) {
             throw new RuntimeException("User not found");
         }
 
         return userRepository.save(user);
     }
 
-    public void deleteUser(Integer id) throws RuntimeException {
-        Optional<User> userOptional = userRepository.findById(id);
-        if(!userOptional.isPresent()) {
+    public void delete(Long id) throws RuntimeException {
+        Optional<User> user = userRepository.findById(id);
+        if(!user.isPresent()) {
             throw new RuntimeException("User not found");
         }
         
-        userRepository.delete(userOptional.get());
+        userRepository.delete(user.get());
     }
 }

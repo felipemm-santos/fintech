@@ -18,7 +18,7 @@ public class User {
             allocationSize = 1
     )
     @Column(name = "ID_USER")
-    private Integer id;
+    private Long id;
 
     @Column(name = "NM_USER")
     private String name;
@@ -41,30 +41,12 @@ public class User {
     @Column(name = "TX_PASSWORD")
     private String password;
 
-    public User() {
-    }
-
-    public User (String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
-    public User(String name, LocalDate birthDate, String genre, LocalDate createdAt, String img_url, String email, String password) {
-        this.name = name;
-        this.birthDate = birthDate;
-        this.genre = genre;
-        this.createdAt = createdAt;
-        this.img_url = img_url;
-        this.email = email;
-        this.password = password;
-    }
-
     // Getters and Setters
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public User setId(Integer id) {
+    public User setId(Long id) {
         this.id = id;
         return this;
     }
