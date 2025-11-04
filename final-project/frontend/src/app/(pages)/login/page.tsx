@@ -23,7 +23,7 @@ export default function LoginPage() {
       }
       const data = await res.json();
       localStorage.setItem("user_token", data.token);
-      router.push("/dashboard");
+      router.push("/dashboard/expenses");
     } catch (err: unknown) {
       setError((err as Error).message);
     }
