@@ -46,13 +46,13 @@ export default function NewExpensePage() {
 
   return (
     <main className="container mx-auto p-8 ">
-      <h1 className="text-5xl font-bold mb-6 text-center">Nova Despesa</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Nova Despesa</h1>
       <form
         onSubmit={handleSubmit}
-        className="w-80 mx-auto bg-white p-6 rounded shadow-lg"
+        className="w-sm mx-auto bg-white p-6 rounded shadow-lg"
       >
         {error && <p className="text-red-600">{error}</p>}
-        <div>
+        <div className="mt-4">
           <label className="block text-sm font-medium">Id Categoria</label>
           <input
             value={categoryId}
@@ -62,7 +62,7 @@ export default function NewExpensePage() {
             className="mt-1 w-full p-2 border rounded"
           />
         </div>
-        <div>
+        <div className="mt-4">
           <label className="block text-sm font-medium">Descrição</label>
           <input
             value={description}
@@ -72,7 +72,7 @@ export default function NewExpensePage() {
             className="mt-1 w-full p-2 border rounded"
           />
         </div>
-        <div>
+        <div className="mt-4">
           <label className="block text-sm font-medium">Valor</label>
           <input
             value={value}
@@ -83,7 +83,7 @@ export default function NewExpensePage() {
             className="mt-1 w-full p-2 border rounded"
           />
         </div>
-        <div>
+        <div className="mt-4">
           <label className="block text-sm font-medium">Status</label>
           <input
             value={status}
@@ -93,7 +93,7 @@ export default function NewExpensePage() {
             className="mt-1 w-full p-2 border rounded"
           />
         </div>
-        <div>
+        <div className="mt-4">
           <label className="block text-sm font-medium">
             Data de Vencimento
           </label>
@@ -101,11 +101,10 @@ export default function NewExpensePage() {
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
             type="date"
-            required
             className="mt-1 w-full p-2 border rounded"
           />
         </div>
-        <div>
+        <div className="mt-4">
           <label className="block text-sm font-medium">Data de Pagamento</label>
           <input
             value={paymentDate}
@@ -115,7 +114,7 @@ export default function NewExpensePage() {
             className="mt-1 w-full p-2 border rounded"
           />
         </div>
-        <button className="w-full bg-blue-600 text-white py-2 rounded">
+        <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded">
           Salvar Despesa
         </button>
       </form>

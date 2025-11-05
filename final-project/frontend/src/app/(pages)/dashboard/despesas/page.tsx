@@ -110,7 +110,7 @@ export default function DashboardExpensePage() {
                   <td className="px-6 py-4 border-b">
                     <div className="flex justify-center gap-2">
                       <ButtonLink
-                        href="/dashboard/expenses/${expense.id}/edit"
+                        href={`/dashboard/despesas/${expense.id}/editar`}
                         text="Editar"
                         color=" bg-yellow-500 text-white"
                         hoverColor="hover:bg-yellow-700"
