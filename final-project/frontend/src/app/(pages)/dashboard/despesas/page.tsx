@@ -5,7 +5,7 @@ import { Expense } from "@/interfaces/expense.interface";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function DashboardPage() {
+export default function DashboardExpensePage() {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -36,7 +36,7 @@ export default function DashboardPage() {
   }, [router]);
 
   const handleDelete = async (id: number) => {
-    if (!confirm("Deseja  realmente  excluir  este  produto?")) return;
+    if (!confirm("Deseja  realmente  excluir  esta despesa?")) return;
 
     const res = await fetch(`/api/dashboard/expenses/${id}`, {
       method: "DELETE",
@@ -44,7 +44,7 @@ export default function DashboardPage() {
     if (res.ok) {
       setExpenses((prev) => prev.filter((e) => e.id !== id));
     } else {
-      alert("Falha ao excluir o produto");
+      alert("Falha ao excluir a despesa.");
     }
   };
 
@@ -53,7 +53,7 @@ export default function DashboardPage() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Despesas</h1>
         <ButtonLink
-          href="/dashboard/expenses/new"
+          href="/dashboard/despesas/novo"
           text="Nova Despesa"
           color="bg-green-600 text-white"
           hoverColor="hover:bg-green-800"
@@ -74,6 +74,7 @@ export default function DashboardPage() {
                 <th className="px-6 py-3 border-b">Data de Vencimento</th>
                 <th className="px-6 py-3 border-b">Data de Pagamento</th>
                 <th className="px-6 py-3 border-b">Id Categoria</th>
+                <th className="px-6 py-3 border-b">Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -106,6 +107,22 @@ export default function DashboardPage() {
                       : "-"}
                   </td>
                   <td className="px-6 py-4 border-b">{expense.categoryId}</td>
+                  <td className="px-6 py-4 border-b">
+                    <div className="flex justify-center gap-2">
+                      <ButtonLink
+                        href="/dashboard/expenses/${expense.id}/edit"
+                        text="Editar"
+                        color=" bg-yellow-500 text-white"
+                        hoverColor="hover:bg-yellow-700"
+                      />
+                      <button
+                        onClick={() => handleDelete(expense.id)}
+                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700"
+                      >
+                        Excluir
+                      </button>
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
