@@ -5,7 +5,7 @@ export async function POST(request: Request) {
   const { email, password } = body;
 
   // Simulação de autenticação
-  if (email === "user@exemplo.com" && password === "user123") {
+  if (email === "teste@exemplo.com" && password === "teste123") {
     // Retorna um token fictício
     return NextResponse.json({ token: "fake-user-token" });
   }
