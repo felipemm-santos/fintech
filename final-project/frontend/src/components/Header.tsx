@@ -8,10 +8,9 @@ export default function Header() {
           Fintech
         </Link>
         <nav className="flex items-center gap-4">
-          <Link href="/dashboard/expenses">Despesas</Link>
-          <Link href="/dashboard/incomes">Receitas</Link>
-          <Link href="/dashboard/investiments">Investimentos</Link>
-          <Link href="/dashboard/goals">Objetivos</Link>
+          <Link href="/dashboard/despesas">Despesas</Link>
+          <Link href="/dashboard/receitas">Receitas</Link>
+          <Link href="/dashboard/objetivos">Objetivos</Link>
         </nav>
       </div>
     </header>
